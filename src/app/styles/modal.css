@@ -1,0 +1,219 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000; /* Aumentado para asegurar que esté por encima de todo */
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  pointer-events: none; /* Evita que capture eventos cuando está oculto */
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: all; /* Permite interacción cuando está visible */
+}
+
+.modal {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
+  padding: 25px;
+  transform: translateY(-20px);
+  transition: transform 0.3s ease;
+  position: relative; /* Asegura que el modal tenga posición relativa */
+  z-index: 2001; /* Mayor que el overlay para asegurar que esté por encima */
+  max-height: 90vh; /* Limita la altura para evitar que sea más grande que la ventana */
+  overflow-y: auto; /* Permite scroll si el contenido es muy largo */
+}
+
+.modal-overlay.active .modal {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-light);
+}
+
+.close-modal {
+  font-size: 24px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.close-modal:hover {
+  color: var(--text-light);
+}
+
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.form-label {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.form-input {
+  padding: 10px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.form-input:focus {
+  border-color: var(--accent-color);
+  outline: none;
+}
+
+.form-textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+.form-submit {
+  background-color: var(--accent-color);
+  color: white;
+  padding: 12px;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  margin-top: 10px;
+  transition: var(--transition);
+}
+
+.form-submit:hover {
+  background-color: var(--accent-hover);
+}
+
+/* Estilos para el modal de registros */
+.registrations-modal {
+  max-width: 800px;
+  width: 90%;
+  margin: 0 auto; /* Centra el modal horizontalmente */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3); /* Añade sombra para destacar el modal */
+}
+
+.modal-content {
+  margin-top: 20px;
+}
+
+.loading-message,
+.error-message,
+.empty-message {
+  text-align: center;
+  padding: 20px 0;
+  color: var(--text-secondary);
+}
+
+.error-message {
+  color: #f44336;
+}
+
+.registrations-list {
+  width: 100%;
+  overflow-x: auto;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 10px;
+}
+
+.registrations-header {
+  display: flex;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 12px 10px;
+  border-radius: var(--border-radius) var(--border-radius) 0 0;
+  font-weight: 600;
+  color: var(--text-light);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.registration-item {
+  display: flex;
+  padding: 12px 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.registration-item:last-child {
+  border-bottom: none;
+}
+
+.registration-item:nth-child(even) {
+  background-color: rgba(255, 255, 255, 0.02);
+}
+
+.reg-col {
+  flex: 1;
+  padding: 0 5px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.reg-col:first-child {
+  flex: 1.5;
+}
+
+@media (max-width: 768px) {
+  .registrations-header,
+  .registration-item {
+    font-size: 12px;
+  }
+  
+  .reg-col {
+    padding: 0 2px;
+  }
+  
+  .registrations-modal {
+    width: 95%;
+    padding: 15px;
+  }
+  
+  .modal-title {
+    font-size: 16px;
+  }
+  
+  /* Ajustar columnas para móviles */
+  .registrations-header,
+  .registration-item {
+    flex-wrap: wrap;
+  }
+  
+  .reg-col {
+    flex: 1 1 50%;
+    margin-bottom: 5px;
+  }
+  
+  .reg-col:first-child {
+    flex: 1 1 100%;
+  }
+}

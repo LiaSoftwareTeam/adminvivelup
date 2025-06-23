@@ -1,0 +1,48 @@
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 80px;
+  right: 0;
+  height: 70px;
+  background-color: var(--sidebar-bg);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  z-index: 90;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar {
+  flex: 1;
+  max-width: 500px;
+  margin-right: 20px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  border: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--text-light);
+  transition: var(--transition);
+}
+
+.search-input:focus {
+  background-color: rgba(255, 255, 255, 0.15);
+  outline: none;
+}
+
+.user-profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}

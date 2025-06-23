@@ -1,13 +1,14 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #0f1b2b;
+  --foreground: #ffffff;
+  --sidebar-bg: #1a1f2e;
+  --accent-color: #3498db;
+  --accent-hover: #5dade2;
+  --card-bg: #1e2738;
+  --text-light: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --border-radius: 8px;
+  --transition: all 0.3s ease;
 }
 
 html,
@@ -35,8 +36,14 @@ a {
   text-decoration: none;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  background: none;
+  font-family: inherit;
+}
+
+input {
+  font-family: inherit;
 }
