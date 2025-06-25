@@ -3,11 +3,13 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import RegistrationsModal from './RegistrationsModal';
+import GenerateCouponModal from './GenerateCouponModal';
 import '../styles/mentorship.css';
-import { FaCalendarAlt, FaTag } from 'react-icons/fa';
+import { FaCalendarAlt, FaTag, FaTicketAlt } from 'react-icons/fa';
 
 export default function MentorshipCard({ event }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isCouponModalOpen, setIsCouponModalOpen] = useState(false);
   
   // Determinar si el evento está lleno
   const isEventFull = event.limite > 0 && event.registrados >= event.limite;
@@ -57,21 +59,33 @@ export default function MentorshipCard({ event }) {
               Ver Registros
             </button>
           </div>
-          <Link 
-            href={`/mentorship/admin/${event.id}`}
-            className="admin-btn"
-          >
-            Administrar
-          </Link>
+          <div className="admin-buttons">
+            <Link 
+              href={`/mentorship/admin/${event.id}`}
+              className="admin-btn"
+            >
+              Administrar
+            </Link>
+            <button 
+              className="coupon-btn"
+              onClick={() => setIsCouponModalOpen(true)}
+            >
+              <FaTicketAlt /> Generar Cupón
+            </button>
+          </div>
         </div>
       </div>
       
-      {/* Modal renderizado fuera de la tarjeta para evitar problemas de visualización */}
+      {/* Modales renderizados fuera de la tarjeta para evitar problemas de visualización */}
       <RegistrationsModal 
         isOpen={isModalOpen} 
         onClose={() => setIsModalOpen(false)} 
         eventId={event.id}
-        eventTitle={event.titulo}
+      />
+      
+      <GenerateCouponModal
+        isOpen={isCouponModalOpen}
+        onClose={() => setIsCouponModalOpen(false)}
       />
     </>
   );

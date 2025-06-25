@@ -1,0 +1,307 @@
+/* Estilos para la página de solicitudes de coaching */
+
+.solicitudes-container {
+  padding: 20px;
+  width: 100%;
+  background: #0f1b2b;
+}
+
+.solicitudes-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+ 
+}
+
+.solicitudes-title {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  color: var(--text-color);
+  margin: 0;
+}
+
+.title-icon {
+  margin-right: 10px;
+  color: var(--accent-color);
+}
+
+.search-container {
+  position: relative;
+  width: 300px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+}
+
+.search-input {
+  width: 100%;
+  padding: 10px 10px 10px 35px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  background: #0f1b2b;
+  border: 1px solid #888;
+  color: #f5f5f5;
+}
+
+.search-input:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 2px rgba(var(--accent-color-rgb), 0.2);
+  outline: none;
+}
+
+.table-container {
+  background-color: #0f1b2b;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  margin-top: 20px;
+}
+
+.solicitudes-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.solicitudes-table th,
+.solicitudes-table td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #eee;
+}
+
+.solicitudes-table th {
+  background-color: #272e42;
+  font-weight: 600;
+  color: #bababd;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+.solicitudes-table td {
+  color: rgb(193, 192, 192);
+}
+
+.solicitudes-table tbody tr:hover {
+  background-color: #202738;
+}
+
+.solicitudes-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.unread-row {
+  font-weight: 600;
+  background-color: rgba(var(--accent-color-rgb), 0.05);
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.status-badge.accepted {
+  background-color: rgba(46, 204, 113, 0.2);
+  color: rgb(136, 251, 21);
+}
+
+.status-badge.pending {
+  background-color: rgba(255, 205, 5, 0.2);
+  border-radius: 3px;
+  padding: 7px 8px;
+  color: #ffea01;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-btn {
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.view-btn:hover {
+  background-color: var(--accent-hover);
+}
+
+.accept-btn {
+  background-color: var(--success-color);
+  color: white;
+}
+
+.accept-btn:hover {
+  background-color: #2a9d5f;
+}
+
+.reject-btn {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.reject-btn:hover {
+  background-color: #d32f2f;
+}
+
+.loading-message,
+.empty-message {
+  text-align: center;
+  padding: 40px 20px;
+  color: #666;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Estilos para el modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease;
+}
+
+.modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-container {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  transform: translateY(-20px);
+  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.modal-overlay.active .modal-container {
+  transform: translateY(0);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(to right, var(--sidebar-bg), var(--card-bg));
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: var(--text-secondary);
+  transition: var(--transition);
+}
+
+.close-btn:hover {
+  color: var(--text-light);
+}
+
+.modal-body {
+  padding: 20px;
+}
+
+.detail-item {
+  margin-bottom: 15px;
+}
+
+.detail-label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-secondary);
+  margin-bottom: 5px;
+}
+
+.detail-value {
+  display: block;
+  font-size: 16px;
+  color: var(--text-light);
+  font-weight: 500;
+}
+
+.modal-actions {
+  margin-top: 20px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.modal-actions .action-btn {
+  width: auto;
+  height: auto;
+  padding: 8px 16px;
+  font-size: 14px;
+  border-radius: 5px;
+  transition: var(--transition);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .solicitudes-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .search-container {
+    width: 100%;
+  }
+  
+  .solicitudes-table {
+    display: block;
+    overflow-x: auto;
+  }
+  
+  .modal-container {
+    width: 95%;
+  }
+}

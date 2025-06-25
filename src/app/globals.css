@@ -1,14 +1,21 @@
 :root {
-  --background: #0f1b2b;
+  --background: #0a192f;
   --foreground: #ffffff;
-  --sidebar-bg: #1a1f2e;
-  --accent-color: #3498db;
-  --accent-hover: #5dade2;
-  --card-bg: #1e2738;
-  --text-light: #e0e0e0;
-  --text-secondary: #a0a0a0;
+  --sidebar-bg: #112240;
+  --accent-color: #05b0e9;
+  --accent-hover: #06c9df;
+  --card-bg: #1e2d40;
+  --text-light: #e6f1ff;
+  --text-secondary: #8892b0;
+  --danger-color: #ff5252;
+  --success-color: #4caf50;
+  --warning-color: #ffc107;
+  --info-color: #2196f3;
   --border-radius: 8px;
   --transition: all 0.3s ease;
+  --gradient-start: #112240;
+  --gradient-end: #0a192f;
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
 html,

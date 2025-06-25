@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import '../styles/sidebar.css';
-import { FaHome, FaUsers, FaChalkboardTeacher } from 'react-icons/fa';
+import { FaHome, FaUsers, FaChalkboardTeacher, FaCalendarCheck } from 'react-icons/fa';
 
 export default function Sidebar() {
   return (
@@ -23,6 +23,12 @@ export default function Sidebar() {
           <div className="nav-icon-container">
             <FaChalkboardTeacher className="nav-icon" />
             <span className="nav-label">Coaches</span>
+          </div>
+        </Link>
+        <Link href="/solicitudes" className="nav-item">
+          <div className="nav-icon-container">
+            <FaCalendarCheck className="nav-icon" />
+            <span className="nav-label">Solicitudes</span>
           </div>
         </Link>
       </nav>

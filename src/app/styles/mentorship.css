@@ -152,10 +152,14 @@
   background-color: rgba(255, 255, 255, 0.15);
 }
 
-.admin-btn {
-  display: block;
-  width: 100%;
+.admin-buttons {
+  display: flex;
+  gap: 10px;
   margin-top: 10px;
+}
+
+.admin-btn {
+  flex: 1;
   padding: 8px 0;
   text-align: center;
   border-radius: var(--border-radius);
@@ -169,4 +173,24 @@
 
 .admin-btn:hover {
   background-color: #27ae60;
+}
+
+.coupon-btn {
+  flex: 1;
+  padding: 8px 0;
+  text-align: center;
+  border-radius: var(--border-radius);
+  font-weight: 500;
+  transition: var(--transition);
+  font-size: 14px;
+  background-color: #9b59b6;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.coupon-btn:hover {
+  background-color: #8e44ad;
 }
