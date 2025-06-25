@@ -100,17 +100,127 @@
 }
 
 .form-submit {
-  background-color: var(--accent-color);
+  background-color: #4CAF50;
   color: white;
-  padding: 12px;
-  border-radius: var(--border-radius);
-  font-weight: 500;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  width: 100%;
   margin-top: 10px;
-  transition: var(--transition);
 }
 
 .form-submit:hover {
-  background-color: var(--accent-hover);
+  background-color: #45a049;
+}
+
+.form-submit:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+/* Estilos para el formulario multi-pasos */
+.steps-indicator {
+  display: flex;
+  justify-content: center;
+  margin: 15px 0;
+}
+
+.step {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #e0e0e0;
+  color: #666;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+  font-weight: bold;
+  position: relative;
+}
+
+.step.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  width: 20px;
+  height: 2px;
+  background-color: #e0e0e0;
+  right: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.step.active:not(:last-child)::after {
+  background-color: #4CAF50;
+}
+
+.form-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.form-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  min-width: 120px;
+}
+
+.prev-button {
+  background-color: #f0f0f0;
+  color: #333;
+}
+
+.next-button {
+  background-color: #2196F3;
+  color: white;
+}
+
+.submit-button {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.prev-button:hover {
+  background-color: #e0e0e0;
+}
+
+.next-button:hover {
+  background-color: #0b7dda;
+}
+
+.submit-button:hover {
+  background-color: #45a049;
+}
+
+.submit-button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.error-message {
+  color: #f44336;
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.form-input.error {
+  border-color: #f44336;
+}
+
+.form-textarea {
+  min-height: 120px;
+  resize: vertical;
 }
 
 /* Estilos para el modal de registros */
